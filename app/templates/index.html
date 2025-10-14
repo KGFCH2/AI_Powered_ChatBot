@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Chatbot</title>
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg?v=20251014-4" />
+  <link rel="stylesheet" href="/static/style.css?v=20251014-4" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>AI Chatbot</h1>
+      <div class="feature-bar">
+        <button id="btn_web_search" class="chip-btn">🔎 Web Search</button>
+        <button id="btn_copy" class="chip-btn">📋 Copy Transcript</button>
+        <button id="btn_clear" class="chip-btn danger">🧹 Clear</button>
+        <button id="btn_about" class="chip-btn ghost">✨ About</button>
+        <span style="flex:1"></span>
+        {% if username %}
+          <span class="chip-btn ghost" title="Logged in as">👤 {{ username }}</span>
+          <a href="/logout" class="chip-btn">↩ Logout</a>
+        {% else %}
+          <a href="/login" class="chip-btn">🔐 Login</a>
+        {% endif %}
+        <button id="btn_theme" class="chip-btn" title="Toggle theme">🌓 Theme</button>
+      </div>
+      <div class="controls">
+        <label style="margin-left:0;">
+          <input type="checkbox" id="use_web_search" /> Use web search
+        </label>
+      </div>
+  <div id="chat" class="chat"></div>
+  <div id="typing" style="display:none;"></div>
+      <div class="input-row">
+        <input id="input" type="text" placeholder="Type a message..." />
+        <button id="send">Send</button>
+      </div>
+    </div>
+    <!-- About Modal -->
+    <div id="about_modal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <h3>About this Chatbot</h3>
+        <p>• Gemini-only FastAPI chatbot with streaming responses.</p>
+        <p>• Optional web search context via DuckDuckGo Instant Answer.</p>
+        <p>• Lightweight, beginner-friendly UI.</p>
+        <div style="margin-top:10px; display:flex; gap:8px; justify-content:flex-end;">
+          <button id="about_close" class="chip-btn">Close</button>
+        </div>
+      </div>
+    </div>
+  <script src="/static/main.js?v=20251014-4"></script>
+  </body>
+  </html>
+

@@ -1,0 +1,299 @@
+:root {
+    --bg: #0b1020;
+    --fg: #e8ecf1;
+    --muted: #9aa3af;
+    --accent: #4f46e5;
+}
+
+/* Light theme */
+.light {
+    --bg: #f6f7fb;
+    --fg: #0b1020;
+    --muted: #4b5563;
+    --accent: #2563eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    background: var(--bg);
+    color: var(--fg);
+}
+
+.container {
+    max-width: 720px;
+    margin: 24px auto;
+    padding: 16px;
+}
+
+h1 {
+    margin: 0 0 16px;
+    font-size: 22px;
+}
+
+/* Feature bar */
+.feature-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 12px;
+}
+
+.chip-btn {
+    border: 1px solid #1f2937;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(14, 165, 233, 0.15));
+    color: var(--fg);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 120ms ease, opacity 120ms ease, background 200ms ease;
+}
+
+.chip-btn:hover {
+    transform: translateY(-1px);
+}
+
+.chip-btn.danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.18), rgba(245, 158, 11, 0.18));
+}
+
+.chip-btn.ghost {
+    background: transparent;
+    border-style: dashed;
+    opacity: 0.95;
+    color: var(--fg);
+}
+
+.controls {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.chat {
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 12px;
+    min-height: 320px;
+    background: #0f152b;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+/* Message row with avatar + bubble */
+.msg-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.msg-row.user {
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    flex: 0 0 34px;
+    background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+.avatar.assistant {
+    background: linear-gradient(135deg, #22c55e, #06b6d4);
+}
+
+.bubble {
+    max-width: 80%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    white-space: pre-wrap;
+    line-height: 1.35;
+    animation: fadeInUp 160ms ease both;
+    color: var(--fg);
+}
+
+.bubble.user {
+    background: #17345c;
+}
+
+.bubble.assistant {
+    background: #1e293b;
+}
+
+/* Light theme overrides */
+.light .chat {
+    background: #ffffff;
+    border-color: #e5e7eb;
+}
+
+.light .bubble.user {
+    background: #e0ecff;
+}
+
+.light .bubble.assistant {
+    background: #eef2ff;
+}
+
+.light input {
+    background: #ffffff;
+    border-color: #e5e7eb;
+    color: var(--fg);
+}
+
+.light .chip-btn {
+    border-color: #d1d5db;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(14, 165, 233, 0.08));
+    color: var(--fg);
+}
+
+.light .chip-btn.danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.10), rgba(245, 158, 11, 0.10));
+}
+
+.light .modal .modal-content {
+    background: #ffffff;
+    color: #0b1020;
+    border-color: #e5e7eb;
+}
+
+.light .typing-bubble {
+    background: #eef2ff;
+}
+
+/* Anchor links styled like chip buttons */
+a.chip-btn {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Text colors in inputs and content */
+input::placeholder {
+    color: var(--muted);
+}
+
+.bubble a {
+    color: var(--accent);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    background: #0f152b;
+    color: var(--fg);
+}
+
+button {
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Simple modal layout reuse */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 50;
+}
+
+.modal .modal-content {
+    width: 420px;
+    max-width: 92vw;
+    background: #0f152b;
+    color: #e8ecf1;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+/* Typing indicator */
+.typing-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.typing-bubble {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 8px 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 2px;
+    border-radius: 50%;
+    background: #9aa3af;
+    animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+
+    30% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}

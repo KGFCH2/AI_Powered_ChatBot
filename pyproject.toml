@@ -1,0 +1,19 @@
+[project]
+name = "ai-powered-chatbot"
+version = "0.1.0"
+description = "A beginner-friendly FastAPI chatbot using Google Gemini"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "fastapi>=0.112",
+  "uvicorn[standard]>=0.30",
+  "jinja2>=3.1",
+  "python-dotenv>=1.0",
+]
+
+#[project.optional-dependencies]
+# (Gemini is installed directly via pip; no extras defined here)
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

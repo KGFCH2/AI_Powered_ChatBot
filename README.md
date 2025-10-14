@@ -1,4 +1,3 @@
-````markdown
 # 🤖 AI-Powered Chatbot (Beginner Friendly)
 
 🚀 Gemini-only FastAPI chatbot with streaming to the browser, optional lightweight web search context, light/dark theme toggle, and a simple demo login.
@@ -113,5 +112,4 @@ curl.exe -H "Content-Type: application/json" -d "{\"messages\":[{\"role\":\"user
 
 ## VS Code
 - You can use the task “Run FastAPI app” to start the server.
-
-````
+---

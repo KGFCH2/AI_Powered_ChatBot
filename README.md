@@ -1,8 +1,8 @@
-# AI-Powered Chatbot (Beginner Friendly)
+# AI-Powered Chatbot (Beginner Friendly) 🤖
 
 Gemini-only FastAPI chatbot with streaming to the browser, optional lightweight web search context, light/dark theme toggle, and a simple demo login.
 
-## Features
+## Features ✨
 - Gemini-only streaming responses (google-generativeai)
 - Optional “Use web search” context via DuckDuckGo Instant Answer (demo-only)
 - Clean UI with avatars, chat bubbles, typing indicator, and feature bar:
@@ -12,10 +12,10 @@ Gemini-only FastAPI chatbot with streaming to the browser, optional lightweight 
 - Health endpoints and a Gemini connectivity check
 - Favicon (SVG) that looks sharp on high-DPI displays
 
-## Requirements
+## Requirements 🧰
 - Windows, Python 3.9+
 
-## Setup
+## Setup 🛠️
 
 1) Create and activate a virtual environment, then install dependencies.
 
@@ -45,7 +45,7 @@ The app will default to `GEMINI_MODEL=gemini-2.0-flash`. If you have issues, try
 
 Open http://127.0.0.1:8020 and press Ctrl+F5 to hard refresh (ensures latest CSS/JS).
 
-### Git Bash (alternative)
+### Git Bash (alternative) 🐚
 ```bash
 cd "/d/Vs Code/PROJECT/AI_Powered_Chatbot_New"
 python -m venv .venv
@@ -55,7 +55,7 @@ python -m pip install -r requirements.txt
 python -m uvicorn app.main:app --port 8020
 ```
 
-## Using the UI
+## Using the UI 💬
 - Type a message and press Enter (or click Send). Responses stream in real-time.
 - Toggle Web Search to add a brief live context from DuckDuckGo IA (demo).
 - Copy Transcript copies visible bubbles to your clipboard.
@@ -64,7 +64,7 @@ python -m uvicorn app.main:app --port 8020
 - Theme toggles light/dark and remembers your choice.
 - Login lets you set a display name stored in a cookie (demo only). Logout clears it.
 
-## Endpoints
+## Endpoints 🚪
 - `GET /` – Chat UI
 - `GET /health` – Health check: `{status: "ok", gemini_key_present: true|false}`
 - `GET /health/gemini` – Quick Gemini test (model + short sample or error)
@@ -81,7 +81,7 @@ python -m uvicorn app.main:app --port 8020
 }
 ```
 
-## Project structure
+## Project structure 📁
 - `app/main.py` – FastAPI app, endpoints (`/`, `/health`, `/health/gemini`, `/api/chat`, `/login`, `/logout`)
 - `app/templates/index.html` – Chat UI
 - `app/templates/login.html` – Simple name-only login form (demo)
@@ -92,7 +92,7 @@ python -m uvicorn app.main:app --port 8020
 - `requirements.txt` – Dependencies
 - `pyproject.toml` – Project metadata
 
-## Troubleshooting
+## Troubleshooting 🩺
 - Port permissions (WinError 10013): choose another port (e.g., 8021, 8023).
 - PowerShell curl alias issues: prefer `curl.exe` when testing endpoints.
 	- Example: `curl.exe http://127.0.0.1:8020/health`

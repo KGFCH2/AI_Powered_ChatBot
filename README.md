@@ -6,7 +6,7 @@
 - 🗣️ Gemini-only streaming responses (google-generativeai)
 - 🔎 Optional “Use web search” context via DuckDuckGo Instant Answer (demo-only)
 - 🎨 Clean UI with avatars, chat bubbles, typing indicator, and feature bar:
-	- 🔍 Web Search toggle, � Copy Transcript, 🧹 Clear, ℹ️ About, 🌓 Theme toggle
+	- 🔍 Web Search toggle, 📋 Copy Transcript, 🧹 Clear, ℹ️ About, 🌓 Theme toggle
 - 🌗 Light/Dark theme (persistent)
 - 🔐 Demo login (cookie-based display name; not production auth)
 - ❤️‍🩹 Health endpoints and a Gemini connectivity check
@@ -106,10 +106,11 @@ curl.exe -H "Content-Type: application/json" -d "{\"messages\":[{\"role\":\"user
 - If responses don’t stream: check `/health` and `/health/gemini`. Ensure `GEMINI_API_KEY` is set in the same terminal used to start uvicorn.
 - Light mode text contrast: ensure latest CSS loaded (hard refresh). The bubbles use `color: var(--fg)`.
 
-## Notes
+## 🧾 Notes
 - The login is for demo purposes only (cookie-based display name, no auth).
 - The web search is a minimal demo via DuckDuckGo IA. For production, use a robust retrieval pipeline (e.g., Tavily/Bing + proper citations).
 
-## VS Code
+## ▶️ VS Code
 - You can use the task “Run FastAPI app” to start the server.
+
 ---

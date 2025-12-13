@@ -54,9 +54,9 @@ async def stream_gemini_response(messages: List[ChatMessage]) -> AsyncGenerator[
     so the client doesn't hang if something goes wrong mid-stream.
     """
     try:
-        import google.generativeai as genai
+        import google.genai as genai
     except Exception as e:  # Library missing or import failure
-        yield f"[setup error] google-generativeai not available: {e}".encode("utf-8")
+        yield f"[setup error] google-genai not available: {e}".encode("utf-8")
         return
 
     if not GEMINI_API_KEY:
@@ -81,28 +81,21 @@ async def stream_gemini_response(messages: List[ChatMessage]) -> AsyncGenerator[
         })
 
     try:
-        genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel(GEMINI_MODEL)
-
-        stream = model.generate_content(
-            contents,
-            stream=True,
-            generation_config={
+        # Initialize client with API key
+        client = genai.Client(api_key=GEMINI_API_KEY)
+        
+        # Stream response from Gemini
+        stream = client.models.generate_content_stream(
+            model=GEMINI_MODEL,
+            contents=contents,
+            config={
                 "temperature": 0.7,
                 "max_output_tokens": 512,
             },
         )
-
         for chunk in stream:
-            text = getattr(chunk, "text", None)
-            if not text and getattr(chunk, "candidates", None):
-                try:
-                    parts = chunk.candidates[0].content.parts or []
-                    text = "".join([getattr(p, "text", "") for p in parts])
-                except Exception:
-                    text = None
-            if text:
-                yield text.encode("utf-8")
+            if chunk.text:
+                yield chunk.text.encode("utf-8")
     except Exception as e:
         # Surface model/config/runtime errors to the client as a final line
         yield f"\n[model error] {str(e)}".encode("utf-8")

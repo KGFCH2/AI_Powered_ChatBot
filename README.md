@@ -3,7 +3,7 @@
 🚀 Gemini-only FastAPI chatbot with streaming to the browser, optional lightweight web search context, light/dark theme toggle, and a simple demo login.
 
 ## ✨ Features
-- 🗣️ Gemini-only streaming responses (google-generativeai)
+- 🗣️ Gemini-only streaming responses (google-genai)
 - 🔎 Optional “Use web search” context via DuckDuckGo Instant Answer (demo-only)
 - 🎨 Clean UI with avatars, chat bubbles, typing indicator, and feature bar:
 	- 🔍 Web Search toggle, 📋 Copy Transcript, 🧹 Clear, ℹ️ About, 🌓 Theme toggle
@@ -21,7 +21,7 @@
 
 ```cmd
 REM From Windows cmd
-cd /d "D:\Vs Code\PROJECT\AI_Powered_Chatbot_New"
+cd /d "D:\Vs Code\PROJECT\AI_Powered_ChatBot"
 python -m venv .venv
 ".venv\Scripts\python" -m pip install --upgrade pip
 ".venv\Scripts\python" -m pip install -r requirements.txt
@@ -35,7 +35,7 @@ copy .env.example .env
 REM Open .env and set GEMINI_API_KEY=your_key_here
 ```
 
-The app will default to `GEMINI_MODEL=gemini-2.0-flash`. If you have issues, try `gemini-1.5-flash`.
+The app will default to `GEMINI_MODEL=gemini-2.5-flash`. If you have issues, try `gemini-1.5-pro`.
 
 3) ▶️ Run the app (pick a port that works on your machine; 8020 is used below).
 
@@ -47,7 +47,7 @@ The app will default to `GEMINI_MODEL=gemini-2.0-flash`. If you have issues, try
 
 ### 🐚 Git Bash (alternative)
 ```bash
-cd "/d/Vs Code/PROJECT/AI_Powered_Chatbot_New"
+cd "/d/Vs Code/PROJECT/AI_Powered_ChatBot"
 python -m venv .venv
 source .venv/Scripts/activate
 python -m pip install --upgrade pip
